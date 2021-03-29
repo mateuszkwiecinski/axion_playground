@@ -2,14 +2,13 @@ plugins {
     id 'pl.allegro.tech.build.axion-release' version '1.13.1'
 }
 
-// print "Invalid version $scmVersion.version"
-
+// logger.quiet("Invalid version $scmVersion.version")
 
 afterEvaluate {
     scmVersion.tag {
         prefix = "ohoh"
     }
 
-    print "Valid version $scmVersion.version"
+    logger.quiet("Vali version $scmVersion.version")
     version = scmVersion.version
 }

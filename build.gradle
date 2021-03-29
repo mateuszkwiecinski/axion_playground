@@ -2,4 +2,8 @@ plugins {
     id 'pl.allegro.tech.build.axion-release' version '1.13.1'
 }
 
-project.version = scmVersion.version
+
+afterEvaluate {
+    scmVersion.tag.prefix = "asdfg"
+    project.version = scmVersion.version
+}

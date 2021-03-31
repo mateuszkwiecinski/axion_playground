@@ -17,6 +17,9 @@ scmVersion {
         prefix = "ohoh"
     }
     releaseBranchPattern = Pattern.compile('^random(/.*)?$')
+    versionIncrementer = pl.allegro.tech.build.axion.release.domain.PredefinedVersionIncrementer.versionIncrementerFor('incrementMinorIfNotOnRelease')
 }
 
 logger.quiet("Valid version $scmVersion.version")
+
+// on master

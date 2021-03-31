@@ -16,7 +16,7 @@ scmVersion {
     tag {
         prefix = 'ohoh'
     }
-    versionIncrementer = pl.allegro.tech.build.axion.release.domain.PredefinedVersionIncrementer.versionIncrementerFor('incrementPatch')
+    versionIncrementer = pl.allegro.tech.build.axion.release.domain.PredefinedVersionIncrementer.versionIncrementerFor('incrementMinorIfNotOnRelease')
     releaseBranchPattern = Pattern.compile('^random(/.*)?$')
 }
 

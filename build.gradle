@@ -1,14 +1,22 @@
-plugins {
-    id 'pl.allegro.tech.build.axion-release' version '1.13.1'
+import java.util.regex.Pattern
+
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'pl.allegro.tech.build:axion-release-plugin:1.13.1-incrementMinorIfNotOnRelease_fix-SNAPSHOT'
+    }
 }
 
-// logger.quiet("Invalid version $scmVersion.version")
+apply plugin: "pl.allegro.tech.build.axion-release"
 
-afterEvaluate {
-    scmVersion.tag {
+
+scmVersion {
+    tag {
         prefix = "ohoh"
     }
-
-    logger.quiet("Vali version $scmVersion.version")
-    version = scmVersion.version
+    releaseBranchPattern = Pattern.compile('^random(/.*)?$')
 }
+
+logger.quiet("Valid version $scmVersion.version")

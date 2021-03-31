@@ -9,13 +9,14 @@ buildscript {
     }
 }
 
-apply plugin: "pl.allegro.tech.build.axion-release"
+apply plugin: 'pl.allegro.tech.build.axion-release'
 
 
 scmVersion {
     tag {
-        prefix = "ohoh"
+        prefix = 'ohoh'
     }
+    versionIncrementer = pl.allegro.tech.build.axion.release.domain.PredefinedVersionIncrementer.versionIncrementerFor('incrementPatch')
     releaseBranchPattern = Pattern.compile('^random(/.*)?$')
 }
 
